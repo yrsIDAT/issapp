@@ -2,10 +2,12 @@
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
-		<link href="style.css" rel="stylesheet" type="text/css">
+
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript" src="js/mapfuncs.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<link href="/static/style.css" rel="stylesheet" type="text/css">
+
 	</head>
 	<body>
 		<div id="header" class="containerstyle bg-style">
@@ -28,13 +30,12 @@
 				<div id="map_map" style="float:left" class="centered">
 					<iframe id="mapcanvas" width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=47.080837,85.78125&amp;t=m&amp;z=4&amp;output=embed"></iframe>
 				</div>
-				<div id="map_viewing" style="float:right;" class="centered">
-					<div id="viewing_visual">
-						<img src="test.jpg"></img>
-					</div>
-					<div id="viewing_desc">
-						<p>Viewing conditions:<br />{viewing_conditions}</p>
-					</div>
+
+				<div id="map_weather" style="float:right;">
+					
+					<br />
+					<a>Viewing conditions</a>
+
 				</div>
 			</div>
 				
@@ -49,11 +50,14 @@
 					</div>
 					
 				</div>
-				<div id="conditions_image" style="float:right;width:25%;height:25%">
-					<img width="100" height="100" src="img/weather_sun.png"></img>
+
+				<div id="conditions_image" style="float:right;width:25%;height:30%">
+					<img src="static/weather_sun.png"></img>
+
 				</div>					
 			</div>
 			
-		</div>		
+		</div>	
+		{{data.results.0.start}}	
 	</body>
 </html>

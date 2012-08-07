@@ -1,6 +1,6 @@
 body{
 
-	background-image: url(/static/body_bg.png);
+	background-image:url('img/body-bg.png');
 	background-size: 100%;
 	font-family: 'Marmelad', sans-serif;
 	z-index: -1;
@@ -17,7 +17,6 @@ div.containerstyle{
 	width:53%;
 	margin:auto;
 	border:2px solid;
-	border-image: url('img/border.png') 25 25 25 25 repeat;
 	padding-left:0.5%;
 	padding-right:0.5%;
 	padding-bottom:0.5%;
@@ -32,7 +31,7 @@ div.centered{
 	margin-right:auto;
 }
 div{
-	/*border:2px solid;*/
+	border:2px solid;
 	overflow:inherit;
 }
 
