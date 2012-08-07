@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render_to_response
 
 
 def index(name, age):
@@ -6,4 +6,4 @@ def index(name, age):
 
 
 def home(request):
-    return index("Owen. ", "(16 Years Old)")
+    return render_to_response('index.htm')
