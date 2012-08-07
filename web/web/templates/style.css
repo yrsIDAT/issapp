@@ -1,0 +1,43 @@
+body{
+
+	background-image:url('img/body-bg.png');
+	background-size: 100%;
+	font-family: 'Marmelad', sans-serif;
+	z-index: -1;
+}
+
+div.bg-style{
+
+	background-color:#ffffff;
+	
+}
+
+div.containerstyle{
+
+	width:53%;
+	margin:auto;
+	border:2px solid;
+	padding-left:0.5%;
+	padding-right:0.5%;
+	padding-bottom:0.5%;
+	padding-top:0.5%;
+	overflow: auto;
+	text-align:center;
+
+	
+}
+div.centered{
+	margin-left:auto;
+	margin-right:auto;
+}
+div{
+	border:2px solid;
+	overflow:inherit;
+}
+
+.header1{
+
+	font-size:130%;
+	
+}
+
