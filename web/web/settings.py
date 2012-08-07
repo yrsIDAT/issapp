@@ -108,8 +108,8 @@ WSGI_APPLICATION = 'web.wsgi.application'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    'templates'
+    # Don't forget to use absolute paths, not relative paths.s
+    'web/templates/'
 )
 
 INSTALLED_APPS = (
@@ -125,7 +125,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-# A sample logging configuration. The only tangible logging
+# A sample logging configuration. The only tangible loggingssss
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
