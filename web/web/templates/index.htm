@@ -1,54 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 	<head>
+	
+		<div id="latitude" style="display:none;visiblity:hidden;">0</div>
+		<div id="longitude" style="display:none;visiblity:hidden;">0</div>
+	
 		<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
-
+		<script type="text/javascript">var satId={{data.id}}</script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		<script type="text/javascript" src="static/mapfuncs.js"></script>
-		<script type="text/javascript" src="static/main.js"></script>
+		<script type="text/javascript" src="/static/mapfuncs.js"></script>
+		<script type="text/javascript" src="/static/main.js"></script>
 		<link href="/static/style.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript">
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position){
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var coords = new google.maps.LatLng(latitude, longitude);
-        var mapOptions = {
-            zoom: 15,
-            center: coords,
-            mapTypeControl: true,
-            navigationControlOptions: {
-                style: google.maps.NavigationControlStyle.SMALL
-            },
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(
-                document.getElementById("mapContainer"), mapOptions
-                );
-            var marker = new google.maps.Marker({
-                    position: coords,
-                    map: map,
-                    title: "Your current location!"
-            });
- 
-        });
-    }else {
-        alert("Geolocation API is not supported in your browser.");
-    }
-</script>
-
 	</head>
-	<body>
+	<body onload="init()">
+	
 		<div id="header" class="containerstyle bg-style">
 			<a class="header1">You are now looking at the position of Satellite {{data.name}}. Satellite ID: {{data.id}}</a>
 		</div>
 		<div id="container_body" class="containerstyle bg-style" style="border-top-width:0">
+			<div id="container_link">
+				<a id="getlink" href="#">Error loading link. Is Javascript enabled?</a>
+			</div>
 			<div id="container_location" class="overflow">
 				<div id="location_searchbar" style="float:left;width:80%;">
 					<input type="text" style="width:99%;"></input>
 				</div>
 				<div id="location_search" style="float:left;">
-					<img src="static/search.png" width="30" height="30" onclick="Search()" style="width:75%;height:75%;float:left;"></img>
+					<img src="/static/search.png" width="30" height="30" onclick="Search()" style="width:75%;height:75%;float:left;"></img>
 					<!--input type="submit" value="Search" onclick="Search()"></input-->
 				</div>
 				<!--div id="location_findme" style="float:right;">
@@ -63,7 +41,7 @@
 
 				<div id="map_weather" style="float:right;" class="overflow">
 					
-					<br />
+					
 					<a>Viewing conditions</a>
 
 				</div>
@@ -85,7 +63,7 @@
 				</div>
 
 				<div id="conditions_image" style="float:right;width:25%;height:25%">
-					<img width="100" height="100" src="static/weather_sun.png"></img>
+					<img width="100" height="100" src="/static/weather_sun.png"></img>
 
 				</div>					
 			</div>

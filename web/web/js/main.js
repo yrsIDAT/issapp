@@ -33,6 +33,10 @@ function SearchComplete() {
 
 }
 
-
+function init() {
+	
+	findLocation()
+	
+}
 
 
