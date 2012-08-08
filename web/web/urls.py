@@ -6,4 +6,5 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('',
     #  Home url
     url(r'^$', 'web.views.home',),
+    url(r'^(?P<sat_id>\d+)/(?P<lat_id>\d+)/(?P<long_id>\d+)/$', 'web.views.home_data')
 )
