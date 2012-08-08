@@ -1,6 +1,6 @@
 body{
 
-	background-image:url('img/body-bg.png');
+	background-image: url(/static/body-bg.png);
 	background-size: 100%;
 	font-family: 'Marmelad', sans-serif;
 	z-index: -1;
