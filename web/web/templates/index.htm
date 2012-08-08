@@ -4,9 +4,38 @@
 		<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
 
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		<script type="text/javascript" src="js/mapfuncs.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="static/mapfuncs.js"></script>
+		<script type="text/javascript" src="static/main.js"></script>
 		<link href="/static/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: coords,
+            mapTypeControl: true,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(
+                document.getElementById("mapContainer"), mapOptions
+                );
+            var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "Your current location!"
+            });
+ 
+        });
+    }else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+</script>
 
 	</head>
 	<body>
@@ -14,24 +43,25 @@
 			<a class="header1">Earth Satellite Viewing Experience Optimiser</a>
 		</div>
 		<div id="container_body" class="containerstyle bg-style" style="border-top-width:0">
-			<div id="container_location">
+			<div id="container_location" class="overflow">
 				<div id="location_searchbar" style="float:left;width:80%;">
 					<input type="text" style="width:99%;"></input>
 				</div>
 				<div id="location_search" style="float:left;">
-					<!--img src="img/search.png" onclick="loc.Search()" style="width:100%;height:100%;float:left;"></img-->
-					<input type="submit" value="Search" onclick="Search()"></input>
+					<img src="static/search.png" width="30" height="30" onclick="Search()" style="width:75%;height:75%;float:left;"></img>
+					<!--input type="submit" value="Search" onclick="Search()"></input-->
 				</div>
-				<div id="location_findme" style="float:right;">
+				<!--div id="location_findme" style="float:right;">
 					<input type="submit" value="Find me" onclick="Get()"></input>
-				</div>
+				</div-->
 			</div>
-			<div id="container_map" class="centered">
-				<div id="map_map" style="float:left" class="centered">
-					<iframe id="mapcanvas" width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=47.080837,85.78125&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+			<div id="container_map" class="centered overflow">
+				<div id="map_map" style="float:left" class="centered overflow">
+					<div id="mapContainer"></div>
+					<!--iframe id="mapcanvas" width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=47.080837,85.78125&amp;t=m&amp;z=4&amp;output=embed"></iframe-->
 				</div>
 
-				<div id="map_weather" style="float:right;">
+				<div id="map_weather" style="float:right;" class="overflow">
 					
 					<br />
 					<a>Viewing conditions</a>
@@ -39,7 +69,7 @@
 				</div>
 			</div>
 				
-			<div id="container_conditions" style="clear:both;margin-top:5%">
+			<div id="container_conditions" style="clear:both;margin-top:5%" class="overflow">
 				<div id="conditions_weather" style="float:left;width:75%;">
 					<div id="conditions_weather_date">
 						<p>YOU CAN NEXT SEE THE ISS AT {viewing_date}</p>
@@ -51,8 +81,8 @@
 					
 				</div>
 
-				<div id="conditions_image" style="float:right;width:25%;height:30%">
-					<img src="static/weather_sun.png"></img>
+				<div id="conditions_image" style="float:right;width:25%;height:25%">
+					<img width="100" height="100" src="static/weather_sun.png"></img>
 
 				</div>					
 			</div>
