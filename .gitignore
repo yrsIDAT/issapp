@@ -1,2 +1,3 @@
+﻿*.pyc
+*.pdn
 web/build/*
-web/web/*.pyc

@@ -13,3 +13,7 @@ def home(request):
     'http://api.uhaapi.com/passes?satid=25544&lat=27.950575&lng=-82.45717760000002')
     jsondata = json.loads(html.data)
     return render_to_response('index.htm', {'data': jsondata})
+
+
+def home_data(request, id, lat, lng):
+    pass
