@@ -40,7 +40,7 @@
 	</head>
 	<body>
 		<div id="header" class="containerstyle bg-style">
-			<a class="header1">Earth Satellite Viewing Experience Optimiser</a>
+			<a class="header1">You are now looking at the position of Satellite {{data.name}}. Satellite ID: {{data.id}}</a>
 		</div>
 		<div id="container_body" class="containerstyle bg-style" style="border-top-width:0">
 			<div id="container_location" class="overflow">
@@ -72,7 +72,10 @@
 			<div id="container_conditions" style="clear:both;margin-top:5%" class="overflow">
 				<div id="conditions_weather" style="float:left;width:75%;">
 					<div id="conditions_weather_date">
-						<p>YOU CAN NEXT SEE THE ISS AT {viewing_date}</p>
+						<p>Extra details!</p>
+							<p>Latitude (North to South) : {{data.location.lat}}&deg;</p>
+								<p>Longitude (East to West) : {{data.location.lng}}&deg;</p>
+									<p>
 					</div>
 					<div id="conditions_weather_text">
 						<p>here i'll tell you it is a lovely day to be iss today. look at the weather mate
@@ -88,6 +91,5 @@
 			</div>
 			
 		</div>	
-		{{data.results.0.start}}	
 	</body>
 </html>
