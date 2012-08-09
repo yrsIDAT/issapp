@@ -1,7 +1,6 @@
 from django.shortcuts import HttpResponse, render_to_response
 import urllib3
 import json
-import time
 
 
 def index(name, age):
@@ -13,23 +12,24 @@ def home(request):
     html = http.request('GET',
     'http://www.adamretter.org.uk/spaceapps/space.xql?lat=50.375589&lng=-4.141631&format=json&nextClear=true')
     jsondata = json.loads(html.data)
-    return render_to_response('index.htm', {'data': jsondata})
+    return render_to_response('index.htm', {'location': jsondata['location'],
+        'weather': jsondata['event']['weather'],
+        'start': jsondata['event']['start'],
+        'end': jsondata['event']['end']})
 
 
 def home_data(request, match):
     vals = match.split('/')
     http = urllib3.PoolManager()
-    URL = 'http://api.uhaapi.com/passes?satid='
+    URL = 'http://www.adamretter.org.uk/spaceapps/space.xql?lat='
     URL += vals[0]
-    URL += '&lat='
-    URL += vals[1]
     URL += '&lng='
-    URL += vals[2]
+    URL += vals[1]
+    URL += '&format=json&nextClear=true'
 
     html = http.request('GET', URL)
     jsondata = json.loads(html.data)
-    for a_result in jsondata['results']:
-        a_result['start']['time'] = time.ctime(a_result['start']['time'])
-        a_result['end']['time'] = time.ctime(a_result['end']['time'])
-
-    return render_to_response('index.htm', {'data': jsondata})
+    return render_to_response('index.htm', {'location': jsondata['location'],
+        'weather': jsondata['event']['weather'],
+        'start': jsondata['event']['start'],
+        'end': jsondata['event']['end']})
