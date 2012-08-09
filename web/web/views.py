@@ -11,10 +11,8 @@ def index(name, age):
 def home(request):
     http = urllib3.PoolManager()
     html = http.request('GET',
-    'http://api.uhaapi.com/passes?satid=25544&lat=27.950575&lng=-82.45717760000002')
+    'http://www.adamretter.org.uk/spaceapps/space.xql?lat=50.375589&lng=-4.141631&format=json&nextClear=true')
     jsondata = json.loads(html.data)
-    for result in jsondata['results']:
-        print result['start']['time']
     return render_to_response('index.htm', {'data': jsondata})
 
 
