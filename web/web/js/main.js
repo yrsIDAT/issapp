@@ -12,7 +12,7 @@ function Search() {
 	if (searchSat.length>0) {
 		if (!isNaN(searchSat)) {
 			var longlat=getLongLat()
-			window.location="/" + searchSat + "/" + longlat.longitude + "/" + longlat.latitude
+			window.location=/*"/" + searchSat + "/" + */ longlat.longitude + "/" + longlat.latitude
 		}
 	}
 
