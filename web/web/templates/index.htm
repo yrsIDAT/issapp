@@ -40,15 +40,17 @@
 						<a>+</a>
 					</div>
 					<div id="details_satdata" style="width:30%;float:left;font-size:120%;">
-						<a>Satellite: {{data.name}} Satellite ID: {{data.id}}</a>
+						<a>Satellite: {{ event.title }}</a>
 					</div>
 				</div>
 				<div id="map_equals" style="padding-top:3%">
 					<a class="header1">=</a>
 				</div>
 				<div id="map_visibility" style="font-size:200%;">
-					<p>Visible from: {{data.results.0.start.time}}<br />Visible until: {{data.results.0.end.time}}</p>
-					
+					<p>Visible from: {{ event.start.time }}<br />Visible until: {{ event.end.time }}</p>
+					<p>Weather details: </p> 
+						{{ event.weather.simple.description }}
+						{{ event.weather.metOffice.chanceOfRain.unit }}
 					
 				</div>
 				

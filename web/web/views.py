@@ -13,6 +13,8 @@ def home(request):
     'http://www.adamretter.org.uk/spaceapps/space.xql?lat=50.375589&lng=-4.141631&format=json&nextClear=true')
     jsondata = json.loads(html.data)
     return render_to_response('index.htm', {'location': jsondata['location'],
+        'event': jsondata['event'],
+        'metOffice': jsondata['event']['weather']['metOffice'],
         'weather': jsondata['event']['weather'],
         'start': jsondata['event']['start'],
         'end': jsondata['event']['end']})
@@ -31,5 +33,6 @@ def home_data(request, match):
     jsondata = json.loads(html.data)
     return render_to_response('index.htm', {'location': jsondata['location'],
         'weather': jsondata['event']['weather'],
+        'metOffice': jsondata['event']['metOffice'],
         'start': jsondata['event']['start'],
         'end': jsondata['event']['end']})
