@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse, render_to_response
 import urllib3
 import json
+import datetime
 
 
 def index(name, age):
@@ -12,6 +13,8 @@ def home(request):
     html = http.request('GET',
     'http://api.uhaapi.com/passes?satid=25544&lat=27.950575&lng=-82.45717760000002')
     jsondata = json.loads(html.data)
+    for result in jsondata['results']:
+        print result['start']['time']
     return render_to_response('index.htm', {'data': jsondata})
 
 
