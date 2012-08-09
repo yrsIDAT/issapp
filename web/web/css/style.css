@@ -1,31 +1,64 @@
-body{
+#floater {
+	
+	height:18%;
+}
 
+#mapContainer {
+    height: 200px;
+    width: 300px;
+    border:10px solid #eaeaea;
+}
+/*
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    z-index: -1;
+}*/
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	
 	background-image:url(/static/body_bg.png);
-	background-size: 100%;
+	
+	background-repeat:no-repeat;
+	background-size: 100% 100%;
 	font-family: 'Marmelad', sans-serif;
 	z-index: -1;
 }
 
 div.bg-style{
 
-	background-color:#ffffff;
+	background-color:#FFFFFF;
 	
 }
 
 div.containerstyle{
 
-	width:53%;
+	width:75%;
 	margin:auto;
 	border:2px solid;
-	border-image: url('/static/border.png') 25 25 25 25 repeat;
+	border-color:#ffffff;
+	/*border-image: url('/static/border.png') 25% 25% 25% 25% repeat;*/
 	padding-left:0.5%;
 	padding-right:0.5%;
 	padding-bottom:0.5%;
 	padding-top:0.5%;
 	overflow: auto;
 	text-align:center;
-
-	
+	-webkit-border-radius:11px; -moz-border-radius:11px; border-radius:11px;
+	-webkit-box-shadow: 1px 2px 8px 1px #777;
+	box-shadow: 1px 2px 8px 1px #777;
 }
 div.centered{
 	margin-left:auto;
@@ -36,11 +69,6 @@ div.overflow{
 }
 div{
 	/*border:1px solid;*/
-}
-#mapContainer {
-    height: 200px;
-    width: 300px;
-    border:10px solid #eaeaea;
 }
 
 .header1{
@@ -53,6 +81,23 @@ div{
 	float:left;
 	width:10%;
 	height:15%;
-	padding-left:10%;
-	padding-right:10%;
+	padding-left:7%;
+	padding-right:7%;
+}
+
+.credits{
+	color: #444;
+    font-size: 9px;
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 18px
+}
+
+.shadowtext{
+	text-shadow: 1.5px 1.5px 2px #949494;
+	filter: dropshadow(color=#949494, offx=1.5, offy=1.5);
 }

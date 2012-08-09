@@ -34,9 +34,16 @@ function findLocation() {
     }	
 }
 
+function roundNumber(num, dec) {
+	var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+	return result;
+}
+
+
 function getLongLat() {
-	var longitude=parseFloat(document.getElementById("longitude").innerText)
-	var latitude=parseFloat(document.getElementById("latitude").innerText)
+	
+	var longitude=roundNumber(parseFloat(document.getElementById("longitude").innerText),5)
+	var latitude=roundNumber(parseFloat(document.getElementById("latitude").innerText),5)
 	return {longitude:longitude,latitude:latitude}
 
 }
@@ -44,7 +51,7 @@ function getLongLat() {
 function setLink(longt,lat) {
 	var newminus="&#44;"
 	var link=document.getElementById("getlink")
-	var hrefNew=satId + "/" + longt + "/" + lat
+	var hrefNew=/*satId + "/" + */longt + "/" + lat
 	
 	//Minus symbol may have URL issues.
 	hrefNew.replace("-",newminus)

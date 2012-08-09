@@ -14,21 +14,24 @@
 		<link href="/static/style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body onload="init()">
-	<div id="latitude" style="display:none;visiblity:hidden;"></div>
+		<div id="latitude" style="display:none;visiblity:hidden;"></div>
 		<div id="longitude" style="display:none;visiblity:hidden;"></div>
-	
+		<!--div id="background">
+			<img src="/static/body_bg.png" class="stretch" alt="" />
+		</div-->
+		<div id="floater"></div>
 		
-		<div id="container_body" class="containerstyle bg-style">
+		<div id="container_body" class="containerstyle bg-style" style="">
 			
 			<div id="container_map" class="centered overflow">
 				<div id="map_map" style="float:left" class="centered overflow">
 					<div id="mapContainer"></div>
 				</div>
-				<div id="map_details" class="overflow">
+				<div id="map_details" class="overflow" style="padding-top:1.5%">
 					<div id="details_plus" style="" class="plussign header1">
 						<a>+</a>
 					</div>
-					<div id="details_weather" style="float:left;" class="overflow">
+					<div id="details_weather" style="float:left;padding-top:1%" class="overflow">
 						
 						
 							
@@ -39,11 +42,11 @@
 					<div id="details_plus" style="" class="plussign header1">
 						<a>+</a>
 					</div>
-					<div id="details_satdata" style="width:30%;float:left;font-size:120%;">
-						<a>Satellite: {{data.name}} Satellite ID: {{data.id}}</a>
+					<div id="details_satdata" style="margin-top:3%;overflow:auto;float:left;font-size:150%;">
+						<a>Satellite: {{data.name}}<br />Satellite ID: {{data.id}}</a>
 					</div>
 				</div>
-				<div id="map_equals" style="padding-top:3%">
+				<div id="map_equals" style="padding-top:3%;padding-right:25%">
 					<a class="header1">=</a>
 				</div>
 				<div id="map_visibility" style="font-size:200%;">
@@ -58,12 +61,13 @@
 				
 			
 			<div id="container_satellite" style="" class="centered overflow">
-					
-				<div id="satellite_searchbar" style="float:left;width:20%;">
-					<a>Satellite ID: </a><input id="satellite_input" value="25544" onclick="ClearBox(this)" type="text" style="width:99%;"></input>
-				</div>
-				<div id="satellite_search" style="float:left;overflow:visible;">
-					<img src="/static/search.png" width="50" height="50" onclick="Search()" style="width:110%;height:110%;float:left;"></img>
+				<div id="searchbar_container" class="overflow" style="padding-left:3%">
+					<div id="satellite_searchbar" style="float:left;width:20%;">
+						<a>Satellite ID: </a><input id="satellite_input" onkeydown="if (event.keyCode == 13){Search()}" value="25544" onclick="ClearBox(this)" type="text" style="width:99%;"></input>
+					</div>
+					<div id="satellite_search" style="float:left;overflow:visible;">
+						<img src="/static/search.png" width="30" height="30" onclick="Search()" style="width:30px;height:30px;float:left;"></img>
+					</div>
 				</div>
 				<div id="satellite_link">
 					<a>Link: </a><a id="getlink" href="#">Error loading link. Is Javascript enabled?</a>
@@ -71,5 +75,8 @@
 			</div>
 			
 		</div>	
+		<div id="container_credits" class="credits">
+			<a>Program copyright 2012&#9400;</a>
+		</div>
 	</body>
 </html>
