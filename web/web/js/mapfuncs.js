@@ -35,8 +35,8 @@ function findLocation() {
 }
 
 function getLongLat() {
-	var longitude=parseInt(document.getElementById("longitude").innerText)
-	var latitude=parseInt(document.getElementById("latitude").innerText)
+	var longitude=parseFloat(document.getElementById("longitude").innerText)
+	var latitude=parseFloat(document.getElementById("latitude").innerText)
 	return {longitude:longitude,latitude:latitude}
 
 }
@@ -46,7 +46,7 @@ function setLink(longt,lat) {
 	var link=document.getElementById("getlink")
 	var hrefNew=satId + "/" + longt + "/" + lat
 	
-	//Minus symbol _may_ have URL issues.
+	//Minus symbol may have URL issues.
 	hrefNew.replace("-",newminus)
 	var curLoc=document.location.hostname.toString()
 	
@@ -61,3 +61,11 @@ function setCurPos() {
 	
 	setLink(longlat.longitude,longlat.latitude)
 }
+/*
+var searchList
+function getSearchList() {
+$.get('ajax/test.html', function(data) {
+  $('.result').html(data);
+  alert('Load was performed.');
+});
+}*/
