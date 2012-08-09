@@ -1,10 +1,6 @@
-
 function Get() {	
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(success, error);
-	} else {
-		error("not supported");
-	}
+	
+    
 }
 
 var localSearch
@@ -37,6 +33,10 @@ function SearchComplete() {
 
 }
 
-
+function init() {
+	
+	findLocation()
+	
+}
 
 
