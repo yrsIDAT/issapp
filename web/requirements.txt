@@ -1,5 +1,5 @@
 # -e git://github.com/jdriscoll/django-imagekit.git@e68906ef5616c1b96db946bfcd076c957488639f#egg=django_imagekit-dev
-Django==1.4
+Django==1.11.29
 Jinja2
 South==0.7.4
 Pillow==1.7.6
